@@ -10,9 +10,8 @@ public class Deserializer<T> implements JsonDeserializer<T>
     public T deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException
     {
         JsonObject jsonObject = json.getAsJsonObject();
-        JsonPrimitive primitive = (JsonPrimitive) jsonObject.get("CLASSNAME");
+        JsonPrimitive primitive = (JsonPrimitive) jsonObject.get(Constants.CLASSNAME);
         String className = primitive.getAsString();
-
         Class<?> clazz;
         try
         {
@@ -22,7 +21,6 @@ public class Deserializer<T> implements JsonDeserializer<T>
         {
             throw new JsonParseException(e);
         }
-
-        return context.deserialize(jsonObject.get("INSTANCE"), clazz);
+        return context.deserialize(jsonObject.get(Constants.INSTANCE), clazz);
     }
 }

@@ -14,9 +14,9 @@ public class Serializer<T> implements JsonSerializer<T> {
     {
         JsonObject returnValue = new JsonObject();
         String className = src.getClass().getName();
-        returnValue.addProperty("CLASSNAME", className);
+        returnValue.addProperty(Constants.CLASSNAME, className);
         JsonElement element = context.serialize(src);
-        returnValue.add("INSTANCE", element);
+        returnValue.add(Constants.INSTANCE, element);
         return returnValue;
     }
 }
