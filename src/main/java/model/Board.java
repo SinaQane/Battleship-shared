@@ -12,7 +12,7 @@ public class Board
         {
             for (int j = 0; j < 10; j++)
             {
-                board[i][j] = new Cell();
+                board[i][j] = new Cell(i, j);
             }
         }
     }
@@ -20,11 +20,6 @@ public class Board
     public Cell getCell(int x, int y)
     {
         return board[x][y];
-    }
-
-    public void getHit(int x, int y)
-    {
-        board[x][y].setHit(true);
     }
 
     public Cell[][] getBoard()

@@ -4,12 +4,15 @@ import model.Ship;
 
 public class Cell
 {
+    private final int[] coordinates = new int[2];
+    private boolean bombed;
     private Ship ship;
-    private boolean hit;
 
-    public Cell()
+    public Cell(int x, int y)
     {
-        hit = false;
+        coordinates[0] = x;
+        coordinates[1] = y;
+        bombed = false;
         ship = null;
     }
 
@@ -18,21 +21,16 @@ public class Cell
         this.ship = ship;
     }
 
-    public void setHit(boolean hit)
+    public void setBombed(boolean bombed)
     {
-        this.hit = hit;
-    }
-
-    public Ship getShip()
-    {
-        return ship;
+        this.bombed = bombed;
     }
 
     public CellStatus getStatus()
     {
         if (ship == null)
         {
-            if (!hit)
+            if (!bombed)
             {
                 return CellStatus.EMPTY;
             }
@@ -43,7 +41,7 @@ public class Cell
         }
         else
         {
-            if  (!hit)
+            if  (!bombed)
             {
                 return CellStatus.SHIP;
             }
@@ -52,5 +50,15 @@ public class Cell
                 return CellStatus.DESTROYED;
             }
         }
+    }
+
+    public int[] getCoordinates()
+    {
+        return coordinates;
+    }
+
+    public Ship getShip()
+    {
+        return ship;
     }
 }

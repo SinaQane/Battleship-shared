@@ -1,16 +1,20 @@
 package model.game;
 
 import model.Board;
+import model.Ship;
 import model.User;
+import model.cell.Cell;
+import model.cell.CellStatus;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Game
 {
     private final User[] players = new User[2];
     private final Board[] boards = new Board[2];
-    private final int[] droppedBombs = new int[2];
-    private final int[] successfulBombs = new int[2];
-    private final int[] sunkenShips = new int[2];
     private String gameMessage;
+    private Side side;
 
     public Game(User playerOne, User playerTwo)
     {
@@ -18,27 +22,17 @@ public class Game
         players[1] = playerTwo;
         boards [0] = new Board();
         boards [1] = new Board();
-    }
-
-    public void threwUnsuccessfulBomb(Side player)
-    {
-        droppedBombs[player.getIndex()]++;
-    }
-
-    public void threwSuccessfulBomb(Side player)
-    {
-        droppedBombs[player.getIndex()]++;
-        successfulBombs[player.getIndex()]++;
-    }
-
-    public void lostShip(Side player)
-    {
-        sunkenShips[player.getIndex()]++;
+        side = Side.PLAYER_ONE;
     }
 
     public void setGameMessage(String gameMessage)
     {
         this.gameMessage = gameMessage;
+    }
+
+    public String getGameMessage()
+    {
+        return gameMessage;
     }
 
     public User getPlayer(Side player)
@@ -51,23 +45,72 @@ public class Game
         return boards[player.getIndex()];
     }
 
+    // GameList functions
+
     public int getDroppedBombs(Side player)
     {
-        return droppedBombs[player.getIndex()];
+        Cell[][] board = boards[player.getRival().getIndex()].getBoard();
+        int cnt = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (board[i][j].getStatus().equals(CellStatus.BOMBED) || board[i][j].getStatus().equals(CellStatus.DESTROYED))
+                {
+                    cnt ++;
+                }
+            }
+        }
+        return cnt;
     }
 
     public int getSuccessfulBombs(Side player)
     {
-        return successfulBombs[player.getIndex()];
+        Cell[][] board = boards[player.getRival().getIndex()].getBoard();
+        int cnt = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (board[i][j].getStatus().equals(CellStatus.DESTROYED))
+                {
+                    cnt ++;
+                }
+            }
+        }
+        return cnt;
     }
 
     public int getSunkenShips(Side player)
     {
-        return sunkenShips[player.getIndex()];
+        Cell[][] board = boards[player.getRival().getIndex()].getBoard();
+        List<Ship> sunkenShips = new LinkedList<>();
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (board[i][j].getShip() != null)
+                {
+                    Ship ship = board[i][j].getShip();
+                    if (ship.isDestroyed() && !sunkenShips.contains(ship))
+                    {
+                        sunkenShips.add(ship);
+                    }
+                }
+            }
+        }
+        return sunkenShips.size();
     }
 
-    public String getGameMessage()
+    // Gameplay functions
+
+    public void nextTurn()
     {
-        return gameMessage;
+        side = side.getRival();
+    }
+
+    public void dropBomb(Side player, int x, int y)
+    {
+        boards[player.getRival().getIndex()].getBoard()[x][y].setBombed(true);
     }
 }

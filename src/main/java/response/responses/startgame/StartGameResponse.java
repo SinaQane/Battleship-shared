@@ -1,4 +1,21 @@
 package response.responses.startgame;
 
-public class StartGameResponse {
+import model.game.Game;
+import response.Response;
+import response.ResponseVisitor;
+
+public class StartGameResponse extends Response
+{
+    Game game;
+
+    public StartGameResponse(Game game)
+    {
+        this.game = game;
+    }
+
+    @Override
+    public void visit(ResponseVisitor responseVisitor)
+    {
+        responseVisitor.viewGame(game);
+    }
 }
