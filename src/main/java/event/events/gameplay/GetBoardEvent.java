@@ -1,14 +1,14 @@
-package event.events.authentication;
+package event.events.gameplay;
 
 import event.Event;
 import event.EventVisitor;
 import response.Response;
 
-public class LogoutEvent extends Event
+public class GetBoardEvent extends Event
 {
     String authToken;
 
-    public LogoutEvent(String authToken)
+    public GetBoardEvent(String authToken)
     {
         this.authToken = authToken;
     }
@@ -16,6 +16,6 @@ public class LogoutEvent extends Event
     @Override
     public Response visit(EventVisitor eventVisitor)
     {
-        return eventVisitor.logout(authToken);
+        return eventVisitor.getBoard(authToken);
     }
 }

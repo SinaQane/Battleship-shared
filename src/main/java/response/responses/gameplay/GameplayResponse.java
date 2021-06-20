@@ -4,6 +4,7 @@ import model.game.Game;
 import response.Response;
 import response.ResponseVisitor;
 
+// Used as a response both for GameMoveEvent and GetGameEvent
 public class GameplayResponse extends Response
 {
     Game game;
@@ -16,6 +17,6 @@ public class GameplayResponse extends Response
     @Override
     public void visit(ResponseVisitor responseVisitor)
     {
-        responseVisitor.viewGame(game);
+        responseVisitor.gameplay(game);
     }
 }

@@ -16,6 +16,6 @@ public class StartGameResponse extends Response
     @Override
     public void visit(ResponseVisitor responseVisitor)
     {
-        responseVisitor.viewGame(game);
+        responseVisitor.startGame(game);
     }
 }
