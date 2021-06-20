@@ -12,6 +12,8 @@ public interface ResponseVisitor
 
     void signupResponse(String response);
 
+    void logoutResponse(String response);
+
     // gameplay responses
 
     void gameplay(Game game);

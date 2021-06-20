@@ -14,7 +14,7 @@ public class User
         this.username = username;
         this.password = password;
         score = wins = loses = 0;
-        online =  true;
+        online =  false;
     }
 
     public String getUsername()
@@ -32,22 +32,22 @@ public class User
         return online;
     }
 
-    public int getScore()
+    public Integer getScore()
     {
         return score;
     }
 
-    public int getWins()
+    public Integer getWins()
     {
         return wins;
     }
 
-    public int getLoses()
+    public Integer getLoses()
     {
         return loses;
     }
 
-    public void Login()
+    public void login()
     {
         online = true;
     }

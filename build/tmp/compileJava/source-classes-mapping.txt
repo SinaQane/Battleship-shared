@@ -2,8 +2,8 @@ Main.java
  Main
 constants/Constants.java
  constants.Constants
-model/User.java
- model.User
+model/Board.java
+ model.Board
 json/Deserializer.java
  json.Deserializer
 json/Serializer.java
@@ -22,16 +22,18 @@ model/Ship.java
  model.Ship
 util/Loop.java
  util.Loop
+model/User.java
+ model.User
 event/events/authentication/LoginEvent.java
  event.events.authentication.LoginEvent
 response/responses/gameplay/GameplayResponse.java
  response.responses.gameplay.GameplayResponse
-model/Board.java
- model.Board
 response/ResponseVisitor.java
  response.ResponseVisitor
 event/events/authentication/SignupEvent.java
  event.events.authentication.SignupEvent
+response/responses/authentication/LogoutResponse.java
+ response.responses.authentication.LogoutResponse
 event/events/menu/ScoreboardEvent.java
  event.events.menu.ScoreboardEvent
 response/responses/startgame/PickBoardResponse.java
@@ -48,6 +50,8 @@ response/Response.java
  response.Response
 response/responses/menu/ViewGameResponse.java
  response.responses.menu.ViewGameResponse
+event/events/TimeoutEvent.java
+ event.events.TimeoutEvent
 event/events/startgame/PickBoardEvent.java
  event.events.startgame.PickBoardEvent
 event/events/startgame/StartGameEvent.java

@@ -14,6 +14,7 @@ public class Game
     private final User[] players = new User[2];
     private final Board[] boards = new Board[2];
     private String gameMessage;
+    private boolean running;
     private Side side;
 
     private int result = -1; // -1 while game is running, 0 if PLAYER_ONE won, 1 if PLAYER_TWO won
@@ -25,6 +26,7 @@ public class Game
         boards [0] = new Board();
         boards [1] = new Board();
         side = Side.PLAYER_ONE;
+        running = true;
     }
 
     public void setGameMessage(String gameMessage)
@@ -45,6 +47,11 @@ public class Game
     public Board getBoard(Side player)
     {
         return boards[player.getIndex()];
+    }
+
+    public boolean isRunning()
+    {
+        return running;
     }
 
     // Gameplay functions
@@ -86,6 +93,11 @@ public class Game
     {
         checkForEndGame();
         return result;
+    }
+
+    public void endGame()
+    {
+        running = false;
     }
 
     // GameList functions

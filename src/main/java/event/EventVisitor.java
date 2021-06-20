@@ -7,6 +7,10 @@ import response.Response;
 // TODO ClientHandler (server) and MainController (client) should have a User and Token attribute
 public interface EventVisitor
 {
+    // general events
+
+    Response timeout(String kind);
+
     // authentication events
 
     Response login(String username, String password);

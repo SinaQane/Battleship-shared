@@ -4,7 +4,7 @@ import model.game.Game;
 import response.Response;
 import response.ResponseVisitor;
 
-// Used as a response both for GameMoveEvent and GetGameEvent
+// Used as a response both to GameMoveEvent and GetBoardEvent
 public class GameplayResponse extends Response
 {
     private final Game game;
