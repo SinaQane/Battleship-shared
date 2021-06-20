@@ -5,7 +5,7 @@ import response.ResponseVisitor;
 
 public class SignupResponse extends Response
 {
-    String response;
+    private final String response;
 
     public SignupResponse(String response)
     {

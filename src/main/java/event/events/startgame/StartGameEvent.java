@@ -8,8 +8,8 @@ import response.Response;
 /* After selecting the board in the client, StartGameEvent will be sent to server to literally start a game. */
 public class StartGameEvent extends Event
 {
-    String authToken;
-    Board board;
+    private final String authToken;
+    private final Board board;
 
     public StartGameEvent(String authToken, Board board)
     {

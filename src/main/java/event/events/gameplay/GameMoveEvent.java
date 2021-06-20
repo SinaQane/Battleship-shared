@@ -6,8 +6,8 @@ import response.Response;
 
 public class GameMoveEvent extends Event
 {
-    String authToken;
-    int x, y;
+    private final String authToken;
+    private final int x, y;
 
     public GameMoveEvent(String authToken, int x, int y)
     {

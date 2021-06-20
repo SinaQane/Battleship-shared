@@ -6,7 +6,7 @@ import response.ResponseVisitor;
 
 public class GamesListResponse extends Response
 {
-    Game[] games;
+    private final Game[] games;
 
     public GamesListResponse (Game[] games)
     {

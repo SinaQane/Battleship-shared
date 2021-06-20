@@ -5,8 +5,7 @@ import response.ResponseVisitor;
 
 public class LoginResponse extends Response
 {
-    String response;
-    String authToken;
+    private final String response, authToken;
 
     public LoginResponse(String response, String authToken)
     {

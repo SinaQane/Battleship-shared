@@ -16,6 +16,8 @@ public class Game
     private String gameMessage;
     private Side side;
 
+    private int result = -1; // -1 while game is running, 0 if PLAYER_ONE won, 1 if PLAYER_TWO won
+
     public Game(User playerOne, User playerTwo)
     {
         players[0] = playerOne;
@@ -43,6 +45,47 @@ public class Game
     public Board getBoard(Side player)
     {
         return boards[player.getIndex()];
+    }
+
+    // Gameplay functions
+
+    public void nextTurn()
+    {
+        side = side.getRival();
+    }
+
+    public void dropBomb(Side player, int x, int y)
+    {
+        boards[player.getRival().getIndex()].getBoard()[x][y].setBombed(true);
+        nextTurn();
+    }
+
+    public void checkForEndGame()
+    {
+        boolean[] endGame = new boolean[]{true, true};
+        for (int p = 0; p < 2; p++)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (boards[p].getCell(i, j).getStatus().equals(CellStatus.SHIP))
+                    {
+                        endGame[p] = false;
+                    }
+                }
+            }
+            if (endGame[p])
+            {
+                result = p;
+            }
+        }
+    }
+
+    public int getResult()
+    {
+        checkForEndGame();
+        return result;
     }
 
     // GameList functions
@@ -100,17 +143,5 @@ public class Game
             }
         }
         return sunkenShips.size();
-    }
-
-    // Gameplay functions
-
-    public void nextTurn()
-    {
-        side = side.getRival();
-    }
-
-    public void dropBomb(Side player, int x, int y)
-    {
-        boards[player.getRival().getIndex()].getBoard()[x][y].setBombed(true);
     }
 }

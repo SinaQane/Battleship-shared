@@ -7,7 +7,7 @@ import response.ResponseVisitor;
 // Used as a response both for GameMoveEvent and GetGameEvent
 public class GameplayResponse extends Response
 {
-    Game game;
+    private final Game game;
 
     public GameplayResponse(Game game)
     {

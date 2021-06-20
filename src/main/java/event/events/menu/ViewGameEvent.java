@@ -7,7 +7,7 @@ import response.Response;
 
 public class ViewGameEvent extends Event
 {
-    Game game;
+    private final Game game;
 
     public ViewGameEvent(Game game)
     {

@@ -6,7 +6,7 @@ import response.ResponseVisitor;
 
 public class ScoreboardResponse extends Response
 {
-    User[] users;
+    private final User[] users;
 
     public ScoreboardResponse (User[] users)
     {

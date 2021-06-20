@@ -6,7 +6,7 @@ import response.Response;
 
 public class LogoutEvent extends Event
 {
-    String authToken;
+    private final String authToken;
 
     public LogoutEvent(String authToken)
     {

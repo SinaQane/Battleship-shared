@@ -6,7 +6,7 @@ import response.ResponseVisitor;
 
 public class ViewGameResponse extends Response
 {
-    Game game;
+    private final Game game;
 
     public ViewGameResponse(Game game)
     {

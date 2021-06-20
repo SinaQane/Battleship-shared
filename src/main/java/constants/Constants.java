@@ -1,4 +1,4 @@
-package json;
+package constants;
 
 public class Constants
 {

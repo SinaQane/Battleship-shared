@@ -6,7 +6,7 @@ import response.ResponseVisitor;
 
 public class PickBoardResponse extends Response
 {
-    Board[] boards;
+    private final Board[] boards;
 
     public PickBoardResponse(Board[] boards)
     {

@@ -6,7 +6,7 @@ import response.Response;
 
 public class GetBoardEvent extends Event
 {
-    String authToken;
+    private final String authToken;
 
     public GetBoardEvent(String authToken)
     {

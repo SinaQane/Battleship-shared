@@ -8,7 +8,7 @@ import response.Response;
 Server sends back a PickBoardResponse containing three generated boards. */
 public class PickBoardEvent extends Event
 {
-    String authToken;
+    private final String authToken;
 
     public PickBoardEvent(String authToken)
     {

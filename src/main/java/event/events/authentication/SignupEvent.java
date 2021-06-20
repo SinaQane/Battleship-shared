@@ -6,7 +6,7 @@ import response.Response;
 
 public class SignupEvent extends Event
 {
-    String username, password;
+    private final String username, password;
 
     public SignupEvent(String username, String password)
     {
