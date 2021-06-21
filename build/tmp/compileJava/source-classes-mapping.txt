@@ -2,8 +2,8 @@ Main.java
  Main
 constants/Constants.java
  constants.Constants
-model/Board.java
- model.Board
+response/responses/menu/ScoreboardResponse.java
+ response.responses.menu.ScoreboardResponse
 json/Deserializer.java
  json.Deserializer
 json/Serializer.java
@@ -14,44 +14,48 @@ model/game/Side.java
  model.game.Side
  model.game.Side$1
  model.game.Side$2
-model/cell/Cell.java
- model.cell.Cell
+response/responses/authentication/LoginResponse.java
+ response.responses.authentication.LoginResponse
 model/cell/CellStatus.java
  model.cell.CellStatus
-model/Ship.java
- model.Ship
+response/responses/menu/ViewGameResponse.java
+ response.responses.menu.ViewGameResponse
 util/Loop.java
  util.Loop
 model/User.java
  model.User
-event/events/authentication/LoginEvent.java
- event.events.authentication.LoginEvent
+response/responses/menu/GamesListResponse.java
+ response.responses.menu.GamesListResponse
 response/responses/gameplay/GameplayResponse.java
  response.responses.gameplay.GameplayResponse
 response/ResponseVisitor.java
  response.ResponseVisitor
-event/events/authentication/SignupEvent.java
- event.events.authentication.SignupEvent
+response/Response.java
+ response.Response
 response/responses/authentication/LogoutResponse.java
  response.responses.authentication.LogoutResponse
-event/events/menu/ScoreboardEvent.java
- event.events.menu.ScoreboardEvent
+response/responses/authentication/SignupResponse.java
+ response.responses.authentication.SignupResponse
 response/responses/startgame/PickBoardResponse.java
  response.responses.startgame.PickBoardResponse
 response/responses/startgame/StartGameResponse.java
  response.responses.startgame.StartGameResponse
-response/responses/menu/GamesListResponse.java
- response.responses.menu.GamesListResponse
+event/events/authentication/LoginEvent.java
+ event.events.authentication.LoginEvent
+model/Board.java
+ model.Board
+event/events/authentication/SignupEvent.java
+ event.events.authentication.SignupEvent
+event/events/menu/ScoreboardEvent.java
+ event.events.menu.ScoreboardEvent
+model/cell/Cell.java
+ model.cell.Cell
 event/events/authentication/LogoutEvent.java
  event.events.authentication.LogoutEvent
-response/responses/authentication/LoginResponse.java
- response.responses.authentication.LoginResponse
-response/Response.java
- response.Response
-response/responses/menu/ViewGameResponse.java
- response.responses.menu.ViewGameResponse
 event/events/TimeoutEvent.java
  event.events.TimeoutEvent
+model/Ship.java
+ model.Ship
 event/events/startgame/PickBoardEvent.java
  event.events.startgame.PickBoardEvent
 event/events/startgame/StartGameEvent.java
@@ -66,11 +70,7 @@ event/events/gameplay/GameMoveEvent.java
  event.events.gameplay.GameMoveEvent
 event/EventVisitor.java
  event.EventVisitor
-response/responses/authentication/SignupResponse.java
- response.responses.authentication.SignupResponse
 model/game/Game.java
  model.game.Game
-response/responses/menu/ScoreboardResponse.java
- response.responses.menu.ScoreboardResponse
 event/events/menu/ViewGameEvent.java
  event.events.menu.ViewGameEvent

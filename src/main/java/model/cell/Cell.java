@@ -61,4 +61,9 @@ public class Cell
     {
         return ship;
     }
+
+    public boolean isBombed()
+    {
+        return getStatus().equals(CellStatus.DESTROYED) || getStatus().equals(CellStatus.BOMBED);
+    }
 }
