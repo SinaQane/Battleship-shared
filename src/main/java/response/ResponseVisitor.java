@@ -8,7 +8,7 @@ public interface ResponseVisitor
 {
     // authentication responses
 
-    void loginResponse(String response, String authToken);
+    void loginResponse(User user, String response, String authToken);
 
     void signupResponse(String response);
 
