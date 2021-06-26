@@ -61,10 +61,21 @@ public class Game
         side = side.getRival();
     }
 
-    public void dropBomb(Side player, int x, int y)
+    public boolean dropBomb(Side player, int x, int y) // returns true if the bombing is valid
     {
-        boards[player.getRival().getIndex()].getBoard()[x][y].setBombed(true);
-        nextTurn();
+        if (player.equals(this.side))
+        {
+            if (0<=x && x<=9 && 0<=y && y<=9)
+            {
+                if (!boards[player.getRival().getIndex()].getBoard()[x][y].isBombed())
+                {
+                    boards[player.getRival().getIndex()].getBoard()[x][y].setBombed(true);
+                    nextTurn();
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void checkForEndGame()

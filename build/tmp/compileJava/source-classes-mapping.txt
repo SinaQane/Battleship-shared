@@ -2,8 +2,8 @@ Main.java
  Main
 json/Serializer.java
  json.Serializer
-model/game/Game.java
- model.game.Game
+constants/Constants.java
+ constants.Constants
 model/User.java
  model.User
 json/Deserializer.java
@@ -24,8 +24,6 @@ model/Ship.java
  model.Ship
 util/Loop.java
  util.Loop
-constants/Constants.java
- constants.Constants
 event/events/authentication/LoginEvent.java
  event.events.authentication.LoginEvent
 response/responses/gameplay/GameplayResponse.java
@@ -70,6 +68,8 @@ event/EventVisitor.java
  event.EventVisitor
 response/responses/authentication/SignupResponse.java
  response.responses.authentication.SignupResponse
+model/game/Game.java
+ model.game.Game
 response/responses/menu/ScoreboardResponse.java
  response.responses.menu.ScoreboardResponse
 event/events/menu/ViewGameEvent.java
