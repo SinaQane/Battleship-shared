@@ -31,7 +31,7 @@ public interface EventVisitor
 
     Response scoreboard();
 
-    Response viewGame(Game game);
+    Response viewGame(int index);
 
     // start game events
 

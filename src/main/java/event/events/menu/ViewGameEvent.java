@@ -2,21 +2,20 @@ package event.events.menu;
 
 import event.Event;
 import event.EventVisitor;
-import model.game.Game;
 import response.Response;
 
 public class ViewGameEvent extends Event
 {
-    private final Game game;
+    private final int index;
 
-    public ViewGameEvent(Game game)
+    public ViewGameEvent(int index)
     {
-        this.game = game;
+        this.index = index;
     }
 
     @Override
     public Response visit(EventVisitor eventVisitor)
     {
-        return eventVisitor.viewGame(game);
+        return eventVisitor.viewGame(index);
     }
 }
