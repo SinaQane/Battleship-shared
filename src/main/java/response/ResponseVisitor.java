@@ -26,6 +26,8 @@ public interface ResponseVisitor
 
     void viewGame(Game game);
 
+    void changeFrame(String frame);
+
     // start game responses
 
     void pickBoard(Board[] boards);

@@ -33,6 +33,8 @@ public interface EventVisitor
 
     Response viewGame(int index);
 
+    Response changeFrame(String frame);
+
     // start game events
 
     Response pickBoard(String authToken);

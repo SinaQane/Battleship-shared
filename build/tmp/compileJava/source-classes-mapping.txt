@@ -24,6 +24,8 @@ model/Ship.java
  model.Ship
 util/Loop.java
  util.Loop
+model/game/Game.java
+ model.game.Game
 event/events/authentication/LoginEvent.java
  event.events.authentication.LoginEvent
 response/responses/gameplay/GameplayResponse.java
@@ -38,16 +40,30 @@ event/events/menu/ScoreboardEvent.java
  event.events.menu.ScoreboardEvent
 response/responses/startgame/StartGameResponse.java
  response.responses.startgame.StartGameResponse
-response/responses/startgame/PickBoardResponse.java
- response.responses.startgame.PickBoardResponse
-response/responses/menu/GamesListResponse.java
- response.responses.menu.GamesListResponse
 event/events/authentication/LogoutEvent.java
  event.events.authentication.LogoutEvent
 response/responses/authentication/LoginResponse.java
  response.responses.authentication.LoginResponse
 response/Response.java
  response.Response
+event/Event.java
+ event.Event
+event/events/gameplay/GetBoardEvent.java
+ event.events.gameplay.GetBoardEvent
+event/events/gameplay/GameMoveEvent.java
+ event.events.gameplay.GameMoveEvent
+event/events/menu/ChangeFrameEvent.java
+ event.events.menu.ChangeFrameEvent
+response/responses/authentication/SignupResponse.java
+ response.responses.authentication.SignupResponse
+response/responses/menu/ScoreboardResponse.java
+ response.responses.menu.ScoreboardResponse
+response/responses/menu/ChangeFrameResponse.java
+ response.responses.menu.ChangeFrameResponse
+response/responses/startgame/PickBoardResponse.java
+ response.responses.startgame.PickBoardResponse
+response/responses/menu/GamesListResponse.java
+ response.responses.menu.GamesListResponse
 response/responses/menu/ViewGameResponse.java
  response.responses.menu.ViewGameResponse
 event/events/TimeoutEvent.java
@@ -56,21 +72,9 @@ event/events/startgame/PickBoardEvent.java
  event.events.startgame.PickBoardEvent
 event/events/startgame/StartGameEvent.java
  event.events.startgame.StartGameEvent
-event/Event.java
- event.Event
 event/events/menu/GamesListEvent.java
  event.events.menu.GamesListEvent
-event/events/gameplay/GetBoardEvent.java
- event.events.gameplay.GetBoardEvent
-event/events/gameplay/GameMoveEvent.java
- event.events.gameplay.GameMoveEvent
 event/EventVisitor.java
  event.EventVisitor
-response/responses/authentication/SignupResponse.java
- response.responses.authentication.SignupResponse
-model/game/Game.java
- model.game.Game
-response/responses/menu/ScoreboardResponse.java
- response.responses.menu.ScoreboardResponse
 event/events/menu/ViewGameEvent.java
  event.events.menu.ViewGameEvent
