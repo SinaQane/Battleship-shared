@@ -49,6 +49,11 @@ public class Game
         return boards[player.getIndex()];
     }
 
+    public void setBoard(int index, Board board)
+    {
+        boards[index] = board;
+    }
+
     public boolean isRunning()
     {
         return running;
