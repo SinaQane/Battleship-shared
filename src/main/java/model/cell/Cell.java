@@ -1,24 +1,22 @@
 package model.cell;
 
-import model.Ship;
-
 public class Cell
 {
     private final int[] coordinates = new int[2];
     private boolean bombed;
-    private Ship ship;
+    private boolean ship;
 
     public Cell(int x, int y)
     {
         coordinates[0] = x;
         coordinates[1] = y;
         bombed = false;
-        ship = null;
+        ship = false;
     }
 
-    public void setShip(Ship ship)
+    public void setShip()
     {
-        this.ship = ship;
+        ship = true;
     }
 
     public void setBombed(boolean bombed)
@@ -28,7 +26,7 @@ public class Cell
 
     public CellStatus getStatus()
     {
-        if (ship == null)
+        if (!ship)
         {
             if (!bombed)
             {
@@ -57,7 +55,7 @@ public class Cell
         return coordinates;
     }
 
-    public Ship getShip()
+    public boolean getShip()
     {
         return ship;
     }

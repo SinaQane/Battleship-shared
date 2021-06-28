@@ -2,11 +2,13 @@ package model;
 
 import model.cell.Cell;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Board
 {
     private final Cell[][] board = new Cell[10][10];
+    private final List<Ship> ships = new LinkedList<>();
 
     public Board()
     {
@@ -26,12 +28,17 @@ public class Board
         {
             cells[i] = board[coordinates.get(i)[0]][coordinates.get(i)[1]];
         }
-        new Ship(cells);
+        ships.add(new Ship(cells));
     }
 
     public Cell getCell(int x, int y)
     {
         return board[x][y];
+    }
+
+    public List<Ship> getShips()
+    {
+        return ships;
     }
 
     public Cell[][] getBoard()

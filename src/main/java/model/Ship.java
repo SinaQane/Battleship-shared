@@ -5,14 +5,14 @@ import model.cell.CellStatus;
 
 public class Ship
 {
-    private final Cell[] ship;
+    private final transient Cell[] ship;
 
     public Ship(Cell[] cells)
     {
         ship = new Cell[cells.length];
         for (int i = 0; i < cells.length; i++)
         {
-            cells[i].setShip(this);
+            cells[i].setShip();
             ship[i] = cells[i];
         }
     }

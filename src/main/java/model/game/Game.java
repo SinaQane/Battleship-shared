@@ -6,9 +6,6 @@ import model.User;
 import model.cell.Cell;
 import model.cell.CellStatus;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Game
 {
     private final User[] players = new User[2];
@@ -149,22 +146,15 @@ public class Game
 
     public int getSunkenShips(Side player)
     {
-        Cell[][] board = boards[player.getRival().getIndex()].getBoard();
-        List<Ship> sunkenShips = new LinkedList<>();
-        for (int i = 0; i < 10; i++)
+        Board board = boards[player.getRival().getIndex()];
+        int cnt = 0;
+        for (Ship ship : board.getShips())
         {
-            for (int j = 0; j < 10; j++)
+            if (ship.isDestroyed())
             {
-                if (board[i][j].getShip() != null)
-                {
-                    Ship ship = board[i][j].getShip();
-                    if (ship.isDestroyed() && !sunkenShips.contains(ship))
-                    {
-                        sunkenShips.add(ship);
-                    }
-                }
+                cnt++;
             }
         }
-        return sunkenShips.size();
+        return cnt;
     }
 }
