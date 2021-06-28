@@ -4,11 +4,11 @@ import event.Event;
 import event.EventVisitor;
 import response.Response;
 
-public class GetBoardEvent extends Event // (UpdateBoardEvent)
+public class ResignEvent extends Event
 {
     private final String authToken;
 
-    public GetBoardEvent(String authToken)
+    public ResignEvent(String authToken)
     {
         this.authToken = authToken;
     }
@@ -16,6 +16,6 @@ public class GetBoardEvent extends Event // (UpdateBoardEvent)
     @Override
     public Response visit(EventVisitor eventVisitor)
     {
-        return eventVisitor.getBoard(authToken);
+        return eventVisitor.resign(authToken);
     }
 }

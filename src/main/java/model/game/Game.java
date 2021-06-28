@@ -6,6 +6,7 @@ import model.User;
 import model.cell.Cell;
 import model.cell.CellStatus;
 
+// Integer "result" is -1 while game is running, 0 if PLAYER_ONE is the winner & 1 if PLAYER_TWO is the winner
 public class Game
 {
     private final User[] players = new User[2];
@@ -13,8 +14,9 @@ public class Game
     private String gameMessage;
     private boolean running;
     private Side side;
+    private int moves;
 
-    private int result = -1; // -1 while game is running, 0 if PLAYER_ONE won, 1 if PLAYER_TWO won
+    private int result = -1;
 
     public Game(User playerOne, User playerTwo)
     {
@@ -24,6 +26,7 @@ public class Game
         boards [1] = new Board();
         side = Side.PLAYER_ONE;
         running = true;
+        moves = 0;
     }
 
     public void setGameMessage(String gameMessage)
@@ -51,14 +54,28 @@ public class Game
         return running;
     }
 
+    public int getMoves()
+    {
+        return moves;
+    }
+
     // Gameplay functions
 
     public void nextTurn()
     {
         side = side.getRival();
+        moves++;
+        if (side.equals(Side.PLAYER_ONE))
+        {
+            setGameMessage(players[0].getUsername() + "'s move");
+        }
+        else
+        {
+            setGameMessage(players[1].getUsername() + "'s move");
+        }
     }
 
-    public boolean dropBomb(Side player, int x, int y) // returns true if the bombing is valid
+    public boolean dropBomb(Side player, int x, int y) // returns true if the bombing is valid and done
     {
         if (player.equals(this.side))
         {
@@ -92,7 +109,7 @@ public class Game
             }
             if (endGame[p])
             {
-                result = p;
+                result = (p + 1) % 2;
             }
         }
     }
@@ -105,6 +122,17 @@ public class Game
 
     public void endGame()
     {
+        setGameMessage(players[getResult()].getUsername() + " won!");
+        players[getResult()].finishedGame("win");
+        players[(getResult() + 1) % 2].finishedGame("lose");
+        running = false;
+    }
+
+    public void resign(Side side)
+    {
+        setGameMessage(players[side.getRival().getIndex()].getUsername() + " won!");
+        players[side.getRival().getIndex()].finishedGame("win");
+        players[side.getIndex()].finishedGame("lose");
         running = false;
     }
 

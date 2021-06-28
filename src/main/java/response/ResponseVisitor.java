@@ -32,5 +32,5 @@ public interface ResponseVisitor
 
     void pickBoard(Board[] boards);
 
-    void startGame(Game game);
+    void startGame(Game game, int side);
 }
