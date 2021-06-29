@@ -44,7 +44,7 @@ public class Game
         return gameMessage;
     }
 
-    public User getPlayer(Side player)
+    public User getPlayer(Side player) // TODO
     {
         return players[player.getIndex()];
     }
@@ -252,5 +252,23 @@ public class Game
             }
         }
         return true;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass())
+        {
+            return false;
+        }
+        Game game = (Game) obj;
+        return (players[0].getUsername().equals(game.players[0].getUsername())
+                && players[1].getUsername().equals(game.players[1].getUsername()))
+                || (players[0].getUsername().equals(game.players[1].getUsername())
+                && players[1].getUsername().equals(game.players[0].getUsername()));
     }
 }
