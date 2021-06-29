@@ -23,10 +23,10 @@ public class Board
 
     public void setShip(List<Integer[]> coordinates)
     {
-        Cell[] cells = new Cell[coordinates.size()];
-        for (int i = 0; i < coordinates.size(); i++)
+        List<Cell> cells = new LinkedList<>();
+        for (Integer[] coordinate : coordinates)
         {
-            cells[i] = board[coordinates.get(i)[0]][coordinates.get(i)[1]];
+            cells.add(board[coordinate[0]][coordinate[1]]);
         }
         ships.add(new Ship(cells));
     }

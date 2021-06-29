@@ -18,12 +18,8 @@ model/game/Side.java
  model.game.Side
  model.game.Side$1
  model.game.Side$2
-model/Board.java
- model.Board
 model/cell/Cell.java
  model.cell.Cell
-model/Ship.java
- model.Ship
 event/events/authentication/LoginEvent.java
  event.events.authentication.LoginEvent
 response/responses/gameplay/GameplayResponse.java
@@ -44,6 +40,8 @@ response/responses/authentication/LoginResponse.java
  response.responses.authentication.LoginResponse
 response/Response.java
  response.Response
+model/Ship.java
+ model.Ship
 event/Event.java
  event.Event
 event/events/gameplay/GetBoardEvent.java
@@ -60,6 +58,8 @@ event/events/gameplay/ResignEvent.java
  event.events.gameplay.ResignEvent
 response/responses/menu/ChangeFrameResponse.java
  response.responses.menu.ChangeFrameResponse
+model/Board.java
+ model.Board
 response/responses/startgame/PickBoardResponse.java
  response.responses.startgame.PickBoardResponse
 response/responses/menu/GamesListResponse.java

@@ -234,11 +234,23 @@ public class Game
         int cnt = 0;
         for (Ship ship : board.getShips())
         {
-            if (ship.isDestroyed())
+            if (isShipDestroyed(player, ship))
             {
                 cnt++;
             }
         }
         return cnt;
+    }
+
+    public boolean isShipDestroyed(Side player, Ship ship)
+    {
+        for (Integer[] coordinate : ship.getShip())
+        {
+            if (!boards[player.getIndex()].getBoard()[coordinate[0]][coordinate[1]].isBombed())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
