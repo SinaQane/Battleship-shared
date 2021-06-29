@@ -20,6 +20,7 @@ public class Game
 
     public Game(User playerOne, User playerTwo)
     {
+        gameMessage = players[0].getUsername() + "'s move";
         players[0] = playerOne;
         players[1] = playerTwo;
         boards [0] = new Board();
