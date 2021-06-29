@@ -1,11 +1,10 @@
 package model;
 
 import model.cell.Cell;
-import model.cell.CellStatus;
 
 public class Ship
 {
-    private final transient Cell[] ship;
+    private final Cell[] ship;
 
     public Ship(Cell[] cells)
     {
@@ -17,11 +16,16 @@ public class Ship
         }
     }
 
+    public Cell[] getShip()
+    {
+        return ship;
+    }
+
     public boolean isDestroyed()
     {
         for (Cell cell : ship)
         {
-            if (!cell.getStatus().equals(CellStatus.DESTROYED))
+            if (!cell.isBombed())
             {
                 return false;
             }

@@ -21,6 +21,8 @@ public interface EventVisitor
 
     Response resign(String authToken);
 
+    Response updateTimer();
+
     // menu events
 
     Response gamesList();

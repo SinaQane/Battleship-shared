@@ -6,6 +6,8 @@ import model.User;
 import model.cell.Cell;
 import model.cell.CellStatus;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 // Integer "result" is -1 while game is running, 0 if PLAYER_ONE is the winner & 1 if PLAYER_TWO is the winner
 public class Game
 {
@@ -15,11 +17,13 @@ public class Game
     private boolean running;
     private Side side;
     private int moves;
+    private final AtomicInteger time;
 
     private int result = -1;
 
     public Game(User playerOne, User playerTwo)
     {
+        time = new AtomicInteger(50);
         players[0] = playerOne;
         players[1] = playerTwo;
         boards [0] = new Board();
@@ -55,6 +59,21 @@ public class Game
         boards[index] = board;
     }
 
+    public synchronized void updateTimer()
+    {
+        time.decrementAndGet();
+    }
+
+    public synchronized void resetTimer()
+    {
+        time.set(50);
+    }
+
+    public synchronized int getTime()
+    {
+        return time.get();
+    }
+
     public boolean isRunning()
     {
         return running;
@@ -65,11 +84,26 @@ public class Game
         return moves;
     }
 
+    public int getSide()
+    {
+        if (side.equals(Side.PLAYER_ONE))
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
+    }
+
     // Gameplay functions
 
-    public void nextTurn()
+    public void nextTurn(boolean passTurn)
     {
-        side = side.getRival();
+        if (passTurn)
+        {
+            side = side.getRival();
+        }
         moves++;
         if (side.equals(Side.PLAYER_ONE))
         {
@@ -87,15 +121,31 @@ public class Game
         {
             if (0<=x && x<=9 && 0<=y && y<=9)
             {
-                if (!boards[player.getRival().getIndex()].getBoard()[x][y].isBombed())
+                Cell selectedCell = boards[player.getRival().getIndex()].getBoard()[x][y];
+                if (!selectedCell.isBombed())
                 {
-                    boards[player.getRival().getIndex()].getBoard()[x][y].setBombed(true);
-                    nextTurn();
+                    selectedCell.setBombed(true);
+                    nextTurn(!(selectedCell.isBombed() && selectedCell.getShip()));
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    public void explosion(Side player, int x, int y)
+    {
+        if (player.equals(this.side))
+        {
+            if (0<=x && x<=9 && 0<=y && y<=9)
+            {
+                Cell selectedCell = boards[player.getRival().getIndex()].getBoard()[x][y];
+                if (!selectedCell.isBombed())
+                {
+                    selectedCell.setBombed(true);
+                }
+            }
+        }
     }
 
     public void checkForEndGame()

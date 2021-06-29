@@ -20,10 +20,10 @@ model/game/Side.java
  model.game.Side$2
 model/Board.java
  model.Board
-model/Ship.java
- model.Ship
 model/cell/Cell.java
  model.cell.Cell
+model/Ship.java
+ model.Ship
 event/events/authentication/LoginEvent.java
  event.events.authentication.LoginEvent
 response/responses/gameplay/GameplayResponse.java
@@ -68,6 +68,8 @@ response/responses/menu/ViewGameResponse.java
  response.responses.menu.ViewGameResponse
 event/events/startgame/PickBoardEvent.java
  event.events.startgame.PickBoardEvent
+event/events/gameplay/UpdateTimerEvent.java
+ event.events.gameplay.UpdateTimerEvent
 event/events/startgame/StartGameEvent.java
  event.events.startgame.StartGameEvent
 event/events/menu/GamesListEvent.java

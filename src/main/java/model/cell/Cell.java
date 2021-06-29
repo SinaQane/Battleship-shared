@@ -62,6 +62,6 @@ public class Cell
 
     public boolean isBombed()
     {
-        return getStatus().equals(CellStatus.DESTROYED) || getStatus().equals(CellStatus.BOMBED);
+        return bombed;
     }
 }
