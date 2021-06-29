@@ -20,7 +20,6 @@ public class Game
 
     public Game(User playerOne, User playerTwo)
     {
-        gameMessage = players[0].getUsername() + "'s move";
         players[0] = playerOne;
         players[1] = playerTwo;
         boards [0] = new Board();
@@ -28,6 +27,7 @@ public class Game
         side = Side.PLAYER_ONE;
         running = true;
         moves = 0;
+        gameMessage = players[0].getUsername() + "'s move";
     }
 
     public void setGameMessage(String gameMessage)
